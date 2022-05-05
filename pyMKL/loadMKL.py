@@ -35,5 +35,4 @@ def _loadMKL():
     else:
         libmkl = ctypes.CDLL(mkl_rt)
 
-    MKLlib = libmkl
-    return MKLlib
+    return libmkl
