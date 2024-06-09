@@ -25,9 +25,6 @@ CLASSIFIERS = [
 'Natural Language :: English',
 ]
 
-with open('README.rst') as fp:
-    LONG_DESCRIPTION = ' '.join(fp.readlines())
-
 setup(
     name = 'pyMKL2',
     version = '0.0.4',
@@ -39,7 +36,8 @@ setup(
     author = 'Dave Marchant',
     author_email = 'dwfmarchant@gmail.com',
     description = 'Python wrapper of Intel MKL routines',
-    long_description = LONG_DESCRIPTION,
+    long_description = open('README.rst').read(),
+    long_description_content_type='text/x-rst',
     license = 'MIT',
     keywords = 'sparse linear solver mkl pardiso',
     url = 'https://github.com/jvcarli/pyMKL2',
