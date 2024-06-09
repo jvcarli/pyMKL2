@@ -8,7 +8,7 @@ standard_library.install_aliases()
 import unittest
 import numpy as np
 import scipy.sparse as sp
-from pyMKL import pardisoSolver
+from pyMKL2 import pardisoSolver
 
 nSize = 100
 

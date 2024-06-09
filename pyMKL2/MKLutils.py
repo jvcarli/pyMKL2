@@ -8,7 +8,7 @@ standard_library.install_aliases()
 from ctypes import Structure, POINTER, c_int, c_char_p
 from . import MKLlib
 
-class pyMKLVersion(Structure):
+class pyMKL2Version(Structure):
     _fields_ = [('MajorVersion',c_int),
                 ('MinorVersion',c_int),
                 ('UpdateVersion',c_int),
@@ -17,11 +17,11 @@ class pyMKLVersion(Structure):
                 ('Processor',c_char_p),
                 ('Platform',c_char_p)]
 _mkl_get_version = MKLlib.mkl_get_version
-_mkl_get_version.argtypes = [POINTER(pyMKLVersion)]
+_mkl_get_version.argtypes = [POINTER(pyMKL2Version)]
 _mkl_get_version.restype = None
 
 def mkl_get_version():
-    MKLVersion = pyMKLVersion()
+    MKLVersion = pyMKL2Version()
     _mkl_get_version(MKLVersion)
     version = {'MajorVersion':MKLVersion.MajorVersion,
                'MinorVersion':MKLVersion.MinorVersion,
